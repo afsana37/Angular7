@@ -1,28 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-test',
+  selector: "app-test",
   template: `
-    <input [(ngModel)]="name" type="text">
-    {{name}}
-  
+    <div *ngIf="displayName; then thenBlock; else elseBlock"></div>
+
+    <ng-template #thenBlock>
+      <h2>Afsana</h2>
+    </ng-template>
+
+    <ng-template #elseBlock>
+      <h2>Hidden</h2>
+    </ng-template>
   `,
   styles: []
 })
 export class TestComponent implements OnInit {
-  public name = "";
-  
- 
-  constructor() { }
+  displayName = false;
 
-  ngOnInit() {
-  }
+  constructor() {}
 
-  logMessage(value)
-  {
-    console.log(value);
-  }
-
- 
-
+  ngOnInit() {}
 }
